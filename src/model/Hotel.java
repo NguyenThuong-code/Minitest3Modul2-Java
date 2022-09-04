@@ -2,26 +2,17 @@ package model;
 
 import java.io.Serializable;
 
-public abstract class Hotel implements Serializable {
-    private int numberDateRent;
+public class Hotel implements Serializable {
+
     private String typeRoom;
     private double priceRoom;
 
     public Hotel() {
     }
 
-    public Hotel(int numberDateRent, String typeRoom, double priceRoom) {
-        this.numberDateRent = numberDateRent;
+    public Hotel(String typeRoom, double priceRoom) {
         this.typeRoom = typeRoom;
         this.priceRoom = priceRoom;
-    }
-
-    public int getNumberDateRent() {
-        return numberDateRent;
-    }
-
-    public void setNumberDateRent(int numberDateRent) {
-        this.numberDateRent = numberDateRent;
     }
 
     public String getTypeRoom() {
@@ -38,13 +29,5 @@ public abstract class Hotel implements Serializable {
 
     public void setPriceRoom(double priceRoom) {
         this.priceRoom = priceRoom;
-    }
- public abstract  String getIdNumber();
-    @Override
-    public String toString() {
-        return
-                "numberDateRent=" + numberDateRent +
-                ", typeRoom='" + typeRoom + '\'' +
-                ", priceRoom=" + priceRoom ;
     }
 }

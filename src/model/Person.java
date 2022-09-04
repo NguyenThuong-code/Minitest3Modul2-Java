@@ -3,22 +3,22 @@ package model;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Person extends Hotel implements CountRent, Serializable {
+public class Person implements  Serializable {
     private String fullName;
     private LocalDate dateOfBirth;
     private String idNumber;
+    private Hotel hotel;
+    private int dayRent;
 
-    public Person(String fullName, LocalDate dateOfBirth, String idNumber) {
-        this.fullName = fullName;
-        this.dateOfBirth = dateOfBirth;
-        this.idNumber = idNumber;
+    public Person() {
     }
 
-    public Person(int numberDateRent, String typeRoom, double priceRoom, String fullName, LocalDate dateOfBirth, String idNumber) {
-        super(numberDateRent, typeRoom, priceRoom);
+    public Person(String fullName, LocalDate dateOfBirth, String idNumber, Hotel hotel, int dayRent) {
         this.fullName = fullName;
         this.dateOfBirth = dateOfBirth;
         this.idNumber = idNumber;
+        this.hotel = hotel;
+        this.dayRent = dayRent;
     }
 
     public String getFullName() {
@@ -45,19 +45,35 @@ public class Person extends Hotel implements CountRent, Serializable {
         this.idNumber = idNumber;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                super.toString()+'\''+ " "+
-                "fullName='" + fullName + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", idNumber='" + idNumber + '\'' +
-                '}';
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
+    public int getDayRent() {
+        return dayRent;
+    }
+
+    public void setDayRent(int dayRent) {
+        this.dayRent = dayRent;
     }
 
     @Override
-    public double payMoney() {
-        double calculator =getNumberDateRent()*getPriceRoom();
-        return calculator;
+    public String toString() {
+        return "Person{" +
+                "fullName='" + fullName + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", idNumber='" + idNumber + '\'' +
+                ", hotel=" + hotel +
+                ", dayRent=" + dayRent +
+                '}';
     }
+//    @Override
+//    public double payMoney() {
+//        double calculator = getDayRent()*getHotel().getPriceRoom();
+//        return calculator;
+//    }
 }

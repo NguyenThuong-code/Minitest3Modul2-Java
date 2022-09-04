@@ -1,32 +1,33 @@
 package storage;
 
-import model.Hotel;
+
+import model.Person;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadAndWrite {
-    public static List<Hotel> readFile(){
-        List<Hotel> hotelList= new ArrayList<>();
+public class ReadAndWrite implements ReadWriteData{
+    public List<Person> readFile(){
+        List<Person> personList= new ArrayList<>();
 
         try {
             FileInputStream fis = new FileInputStream("hotel.dat");
             ObjectInputStream ois= new ObjectInputStream(fis);
             Object obj = ois.readObject();
-            hotelList=(List<Hotel>) obj;
+            personList=(List<Person>) obj;
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return hotelList;
+        return personList;
     }
-    public static void writeFile(List<Hotel> hotels){
+    public void writeFile(List<Person> personList){
         try {
             FileOutputStream fos= new FileOutputStream("hotel.dat");
             ObjectOutputStream oos=new ObjectOutputStream(fos);
-            oos.writeObject(hotels);
+            oos.writeObject(personList);
             oos.close();
             fos.close();
         } catch (FileNotFoundException e) {
