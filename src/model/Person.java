@@ -3,7 +3,7 @@ package model;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Person implements  Serializable {
+public class Person implements Serializable {
     private String fullName;
     private LocalDate dateOfBirth;
     private String idNumber;

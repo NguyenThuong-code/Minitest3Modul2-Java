@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class Main {
         public static List<Hotel> hotelList= ManageHotel.hotelList;
-        public static List<Person> personList=new ArrayList<>();
+        public static List<Person> personList =ManageRender.renderList;
 
     public static ManageRender mr= new ManageRender();
     public static void main(String[] args) {
@@ -73,7 +73,7 @@ public class Main {
                     break;
                 }
                 case "2": {
-                    mr.displayRender(personList);
+                    mr.displayRender();
                     break;
                 }
                 case "3":{

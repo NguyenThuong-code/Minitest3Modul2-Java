@@ -37,21 +37,21 @@ public class ManageRender {
 //      renderList.add(person);
 //      readWriteData.writeFile(renderList);
 //  }
-    public void displayRender(List<Person> renderList){
+    public void displayRender(){
         for (Person list:renderList
         ) {
             System.out.println(list.toString());
         }
     }
-    public void addRenderToList(List<Person> personList) {
-        readWriteData.writeFile(personList);
+    public void addRenderToList(List<Person> renderList) {
+        readWriteData.writeFile(renderList);
     }
 
     public void deleteRender(List<Person> renderList,String id) {
         for (int i = 0; i < renderList.size(); i++) {
-                if (renderList.get(i).getIdNumber().equals(id)){
+                if (renderList.get(i).getIdNumber().equals( id)){
                     renderList.remove(renderList.get(i));
-                readWriteData.writeFile(renderList);
+//                readWriteData.writeFile(renderList);
             }else {
                     System.out.println("Id not found");
                 }
